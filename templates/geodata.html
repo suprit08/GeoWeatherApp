@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}Geodata App{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="text-center display-4">Geodata App</h1>
+        <p class="text-center lead">Find the atmosphere geodata of any location</p>
+    </div>
+    <hr>
+    <a class="btn btn-dark" href="{% url 'home' %}">< Back</a><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card shadow-sm mb-5 bg-white rounded">
+                    <h5 class="card-header">{{city_name}}, {{country_code}}</h5>
+                    <div class="card-body">
+                      <h5 class="card-title">Current Weather Report</h5>
+                      <p class="card-text">
+                        <table class="table table-hover table-striped">
+                            <tr>
+                                <td>Date Time</td>
+                                <td>{{datetime}}</td>
+                            </tr>
+                            <tr>
+                                <td>Average Temperature</td>
+                                <td>{{temp}}°C</td>
+                            </tr>
+                            <tr>
+                                <td>Max. Temperature</td>
+                                <td>{{max_temp}}°C</td>
+                            </tr>
+                            <tr>
+                                <td>Min. Temperature</td>
+                                <td>{{min_temp}}°C</td>
+                            </tr>
+                            <tr>
+                                <td>Average Pressure</td>
+                                <td>{{avg_pressure}} mb</td>
+                            </tr>
+                            <tr>
+                                <td>Average Wind Speed</td>
+                                <td>{{avg_wind_speed}} m/s</td>
+                            </tr>
+                            <tr>
+                                <td>Average Wind Direction</td>
+                                <td>{{wind_dir}}°</td>
+                            </tr>
+                            <tr>
+                                <td>Cloud Coverage %</td>
+                                <td>{{clouds}}%</td>
+                            </tr>
+                            <tr>
+                                <td>Maximum UV Index (0-11)</td>
+                                <td>{{max_uv}}</td>
+                            </tr>
+                            <tr>
+                                <td>Average Solar Radiation</td>
+                                <td>{{avg_solar_radiation}} W/M^2</td>
+                            </tr>
+                            
+
+                        </table>
+                      </p>
+                      <button class="btn btn-primary" onclick="window.print()">Print</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card bg-default text-white shadow-sm mb-5 rounded" style="height:500px;">
+                    <div class="card-body">
+                        <iframe height="100%" width="100%" src = "https://maps.google.com/maps?q={{lat}},{{lon}}&hl=es;z=14&amp;output=embed"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

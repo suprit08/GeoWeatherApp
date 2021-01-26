@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Geodata App{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="text-center display-4">Geodata App</h1>
+            <p class="text-center lead">Find the atmosphere geodata of any location</p>
+        </div>
+        <hr>
+        <div class="center-text card" style="width: 50rem">
+            <div class="card-body">
+            <form method="get" action={% url 'geodata' %}>
+                <label>Postal Code :</label><br>
+                <input class="form-control" name="postal_code"><br>
+                <label>Country :</label><br>
+                <select name="country" class="form-select" aria-label="Default select example">
+                    <option value="IN">India (भारत) </option>
+                    <option value="AF">Afghanisthan</option>
+                    <option value="AU">Australia</option>
+                    <option value="BD">Bangladesh</option>
+                    <option value="BE">Belgium</option>
+                    <option value="BT">Bhutan</option>
+                    <option value="BR">Brazil</option>
+                    <option value="CA">Canada</option>
+                    <option value="CN">China</option>
+                    <option value="CU">Cuba</option>
+                    <option value="DK">Denmark</option>
+                    <option value="EG">Egypt</option>
+                    <option value="FJ">Fiji</option>
+                    <option value="FR">France</option>
+                    <option value="DE">Germany</option>
+                    <option value="HK">Honk Kong</option>
+                    <option value="ID">Indonesia</option>
+                    <option value="IR">Iran</option>
+                    <option value="IQ">Iraq</option>
+                    <option value="IE">Ireland</option>
+                    <option value="IL">Israel</option>
+                    <option value="IT">Italy</option>
+                    <option value="JP">Japan</option>
+                    <option value="PK">Pakistan</option>
+                    <option value="US">United States of America</option>
+                </select><br>
+                <button class="btn btn-success" type="submit">Show Data</button>
+            </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
